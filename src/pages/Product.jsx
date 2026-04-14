@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
 import Slider from "../components/Slider";
+import Accordion from "../components/Accordion";
 
 function Product() {
   const { id } = useParams();
@@ -35,13 +36,15 @@ function Product() {
           <p>
             <strong>Rating:</strong> {product.rating}
           </p>
-          <p>
-            <strong>Description:</strong> {product.description}
-          </p>
 
           <button style={{ marginTop: "20px", padding: "10px 20px" }}>
             Add to cart
           </button>
+
+          <Accordion
+            title="Extended description"
+            content={product.description}
+          />
         </div>
       </div>
     </div>
