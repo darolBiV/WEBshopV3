@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { products } from "../data/products";
+import Slider from "../components/Slider";
 
 function Product() {
   const { id } = useParams();
@@ -14,16 +15,33 @@ function Product() {
     <div style={{ padding: "20px" }}>
       <h1>{product.title}</h1>
 
-      <div style={{ display: "flex", gap: "30px", marginTop: "20px" }}>
-        <img src={product.images[0]} alt="" width="300" />
+      <div
+        style={{
+          display: "flex",
+          gap: "30px",
+          marginTop: "20px",
+          alignItems: "flex-start",
+        }}
+      >
+        <Slider images={product.images} title={product.title} />
 
         <div>
-          <p>{product.subtitle}</p>
-          <p>${product.price}</p>
-          <p>{product.rating}</p>
-          <p>{product.description}</p>
+          <p>
+            <strong>Subtitle:</strong> {product.subtitle}
+          </p>
+          <p>
+            <strong>Price:</strong> ${product.price}
+          </p>
+          <p>
+            <strong>Rating:</strong> {product.rating}
+          </p>
+          <p>
+            <strong>Description:</strong> {product.description}
+          </p>
 
-          <button style={{ marginTop: "20px" }}>Add to cart</button>
+          <button style={{ marginTop: "20px", padding: "10px 20px" }}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
