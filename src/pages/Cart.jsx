@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import "./Cart.css";
 
 function Cart() {
   const {
@@ -34,67 +35,88 @@ function Cart() {
 
   if (cartItems.length === 0) {
     return (
-      <div style={{ padding: "20px" }}>
+      <div className="cart-empty">
         <h1>Cart is empty</h1>
-        <Link to="/">Return to catalog</Link>
+        <Link to="/" className="cart-empty-link">
+          Return to catalog
+        </Link>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Cart Page</h1>
+    <div className="cart-page">
+      <h1 className="cart-title">Cart</h1>
 
-      {cartItems.map((item) => (
-        <div
-          key={item.id}
-          style={{
-            border: "1px solid #ccc",
-            padding: "15px",
-            marginBottom: "15px",
-          }}
-        >
-          <h3>{item.title}</h3>
-          <p>{item.subtitle}</p>
-          <p>Price: ${item.price}</p>
-          <p>Quantity: {item.quantity}</p>
-          <p>Total: ${(item.price * item.quantity).toFixed(2)}</p>
+      <div className="cart-list">
+        {cartItems.map((item) => (
+          <div key={item.id} className="cart-item">
+            <div className="cart-item-title">{item.title}</div>
+            <div className="cart-item-subtitle">{item.subtitle}</div>
 
-          <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-            <button onClick={() => decreaseQuantity(item.id)}>-</button>
-            <button onClick={() => increaseQuantity(item.id)}>+</button>
-            <button onClick={() => removeFromCart(item.id)}>Remove</button>
+            <div className="cart-item-row">Price: ${item.price}</div>
+            <div className="cart-item-row">Quantity: {item.quantity}</div>
+            <div className="cart-item-row">
+              Total: ${(item.price * item.quantity).toFixed(2)}
+            </div>
+
+            <div className="cart-actions">
+              <button
+                type="button"
+                className="cart-button"
+                onClick={() => decreaseQuantity(item.id)}
+              >
+                -
+              </button>
+              <button
+                type="button"
+                className="cart-button"
+                onClick={() => increaseQuantity(item.id)}
+              >
+                +
+              </button>
+              <button
+                type="button"
+                className="cart-button"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-
-      {/* 🔽 ПРОМОКОД */}
-      <div style={{ marginTop: "20px" }}>
-        <h3>Promo code</h3>
-
-        <input
-          type="text"
-          value={promoCode}
-          onChange={(e) => setPromoCode(e.target.value)}
-          placeholder="Enter code"
-        />
-
-        <button onClick={handleApplyPromo} style={{ marginLeft: "10px" }}>
-          Apply
-        </button>
-
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        ))}
       </div>
 
-      {/* 🔽 ИТОГ */}
-      <div style={{ marginTop: "20px" }}>
-        <p>Total price: ${totalPrice.toFixed(2)}</p>
+      <div className="cart-summary">
+        <h3 className="cart-promo-title">Promo code</h3>
 
-        {discount > 0 && (
-          <p>Discount: -{(discount * 100).toFixed(0)}%</p>
-        )}
+        <div className="cart-promo-row">
+          <input
+            type="text"
+            value={promoCode}
+            onChange={(e) => setPromoCode(e.target.value)}
+            placeholder="Enter code"
+            className="cart-input"
+          />
 
-        <h2>Final price: ${finalPrice.toFixed(2)}</h2>
+          <button
+            type="button"
+            onClick={handleApplyPromo}
+            className="cart-button"
+          >
+            Apply
+          </button>
+        </div>
+
+        {error && <p className="cart-error">{error}</p>}
+
+        <div className="cart-total">
+          <p>Total price: ${totalPrice.toFixed(2)}</p>
+
+          {discount > 0 && <p>Discount: -{(discount * 100).toFixed(0)}%</p>}
+
+          <div className="cart-final">Final price: ${finalPrice.toFixed(2)}</div>
+        </div>
       </div>
     </div>
   );
