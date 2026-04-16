@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import { products } from "../data/products";
+import { CartContext } from "../context/CartContext";
 import Slider from "../components/Slider";
 import Accordion from "../components/Accordion";
 
 function Product() {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
 
   const product = products.find((item) => item.id === Number(id));
 
@@ -37,7 +40,11 @@ function Product() {
             <strong>Rating:</strong> {product.rating}
           </p>
 
-          <button style={{ marginTop: "20px", padding: "10px 20px" }}>
+          <button
+            type="button"
+            onClick={() => addToCart(product)}
+            style={{ marginTop: "20px", padding: "10px 20px" }}
+          >
             Add to cart
           </button>
 
