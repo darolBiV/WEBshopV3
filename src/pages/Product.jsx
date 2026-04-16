@@ -4,6 +4,7 @@ import { products } from "../data/products";
 import { CartContext } from "../context/CartContext";
 import Slider from "../components/Slider";
 import Accordion from "../components/Accordion";
+import "./Product.css";
 
 function Product() {
   const { id } = useParams();
@@ -16,34 +17,25 @@ function Product() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>{product.title}</h1>
+    <div className="product-page">
+      <h1 className="product-title">{product.title}</h1>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "30px",
-          marginTop: "20px",
-          alignItems: "flex-start",
-        }}
-      >
+      <div className="product-layout">
         <Slider images={product.images} title={product.title} />
 
-        <div>
-          <p>
-            <strong>Subtitle:</strong> {product.subtitle}
-          </p>
-          <p>
-            <strong>Price:</strong> ${product.price}
-          </p>
-          <p>
+        <div className="product-info">
+          <p className="product-subtitle">{product.subtitle}</p>
+
+          <p className="product-price">${product.price}</p>
+
+          <p className="product-rating">
             <strong>Rating:</strong> {product.rating}
           </p>
 
           <button
             type="button"
             onClick={() => addToCart(product)}
-            style={{ marginTop: "20px", padding: "10px 20px" }}
+            className="product-button"
           >
             Add to cart
           </button>

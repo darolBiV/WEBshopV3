@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Slider.css";
 
 function Slider({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,22 +21,18 @@ function Slider({ images, title }) {
   };
 
   return (
-    <div>
+    <div className="slider">
       <img
         src={images[currentIndex]}
         alt={title}
-        style={{
-          width: "400px",
-          maxWidth: "100%",
-          display: "block",
-        }}
+        className="slider-image"
       />
 
-      <div style={{ display: "flex", gap: "10px", marginTop: "15px" }}>
-        <button type="button" onClick={handlePrev}>
+      <div className="slider-controls">
+        <button type="button" className="slider-button" onClick={handlePrev}>
           Prev
         </button>
-        <button type="button" onClick={handleNext}>
+        <button type="button" className="slider-button" onClick={handleNext}>
           Next
         </button>
       </div>
