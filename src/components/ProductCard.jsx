@@ -6,22 +6,60 @@ import "./ProductCard.css";
 function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
 
+  const fullStars = Math.floor(product.rating);
+  const emptyStars = 5 - fullStars;
+
   return (
-    <div className="card">
-      <img src={product.image} alt={product.title} />
-
-      <div className="title">{product.title}</div>
-      <div>{product.subtitle}</div>
-      <div className="price">${product.price}</div>
-
-      <div className="buttons">
-        <Link to={`/product/${product.id}`} className="btn">
-          View
+    <div className="product-card">
+      <div className="product-card-image-wrap">
+        <Link to={`/product/${product.id}`} className="product-card-image-link">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="product-card-image"
+          />
         </Link>
 
-        <button className="btn" onClick={() => addToCart(product)}>
-          Add
-        </button>
+        <div className="product-card-price-badge">${product.price}</div>
+
+        <div className="product-card-hover-panel">
+          <div className="hover-title">{product.title}</div>
+
+          <div className="hover-rating">
+            <span className="stars">
+              {"★".repeat(fullStars)}
+              {"☆".repeat(emptyStars)}
+            </span>
+            <span className="rating-count">({product.rating})</span>
+          </div>
+
+          <div className="hover-bottom">
+            <div className="hover-price">${product.price}</div>
+
+            <button
+              type="button"
+              className="hover-cart-btn"
+              onClick={() => addToCart(product)}
+              aria-label="Add to cart"
+            >
+              🛒
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="product-card-body">
+        <Link to={`/product/${product.id}`} className="product-card-title">
+          {product.title}
+        </Link>
+
+        <div className="product-card-rating">
+          <span className="stars">
+            {"★".repeat(fullStars)}
+            {"☆".repeat(emptyStars)}
+          </span>
+          <span className="rating-count">({product.rating})</span>
+        </div>
       </div>
     </div>
   );
