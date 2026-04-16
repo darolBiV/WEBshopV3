@@ -44,4 +44,46 @@ export const products = [
     description:
       "Soft and comfortable pet bed for daily rest and better sleep.",
   },
+  {
+  id: 4,
+  title: "Dog Leash",
+  subtitle: "Strong leash for dogs",
+  price: 19.99,
+  rating: 4.6,
+  image: "https://images.unsplash.com/photo-1713106872096-cee971f0528e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBiZWQlMjBjdXNoaW9ufGVufDF8fHx8MTc3MTE4NjI3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+  images: [
+    "https://images.unsplash.com/photo-1713106872096-cee971f0528e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBiZWQlMjBjdXNoaW9ufGVufDF8fHx8MTc3MTE4NjI3Mnww&ixlib=rb-4.1.0&q=80&w=1080+1",
+    "https://images.unsplash.com/photo-1713106872096-cee971f0528e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBiZWQlMjBjdXNoaW9ufGVufDF8fHx8MTc3MTE4NjI3Mnww&ixlib=rb-4.1.0&q=80&w=1080+2",
+    "https://images.unsplash.com/photo-1713106872096-cee971f0528e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBiZWQlMjBjdXNoaW9ufGVufDF8fHx8MTc3MTE4NjI3Mnww&ixlib=rb-4.1.0&q=80&w=1080+3",
+  ],
+  description: "Durable leash perfect for daily walks.",
+},
+{
+  id: 5,
+  title: "Cat House",
+  subtitle: "Cozy house for cats",
+  price: 39.99,
+  rating: 4.7,
+  image: "https://images.unsplash.com/photo-1598134493179-51332e56807f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBmb29kJTIwYm93bHxlbnwxfHx8fDE3NzEwODY2ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  images: [
+    "https://images.unsplash.com/photo-1598134493179-51332e56807f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBmb29kJTIwYm93bHxlbnwxfHx8fDE3NzEwODY2ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080+1",
+    "https://images.unsplash.com/photo-1598134493179-51332e56807f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBmb29kJTIwYm93bHxlbnwxfHx8fDE3NzEwODY2ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080+2",
+    "https://images.unsplash.com/photo-1598134493179-51332e56807f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBmb29kJTIwYm93bHxlbnwxfHx8fDE3NzEwODY2ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080+3",
+  ],
+  description: "Soft and warm house for your cat.",
+},
+{
+  id: 6,
+  title: "Pet Bowl",
+  subtitle: "Food and water bowl",
+  price: 9.99,
+  rating: 4.3,
+  image: "https://images.unsplash.com/photo-1577447278822-37801be21738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBsZWFzaCUyMGNvbGxhcnxlbnwxfHx8fDE3NzExODYyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  images: [
+    "https://images.unsplash.com/photo-1577447278822-37801be21738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBsZWFzaCUyMGNvbGxhcnxlbnwxfHx8fDE3NzExODYyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080+!",
+    "https://images.unsplash.com/photo-1577447278822-37801be21738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBsZWFzaCUyMGNvbGxhcnxlbnwxfHx8fDE3NzExODYyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080+2",
+    "https://images.unsplash.com/photo-1577447278822-37801be21738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBsZWFzaCUyMGNvbGxhcnxlbnwxfHx8fDE3NzExODYyNzN8MA&ixlib=rb-4.1.0&q=80&w=1080+3",
+  ],
+  description: "Simple and durable pet bowl.",
+},
 ];
