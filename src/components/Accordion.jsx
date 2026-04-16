@@ -3,31 +3,42 @@ import { useState } from "react";
 function Accordion({ title, content }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAccordion = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   return (
-    <div style={{ marginTop: "20px", border: "1px solid #ccc" }}>
+    <div
+      style={{
+        marginTop: "20px",
+        border: "1px solid #e2e2e2",
+        borderRadius: "14px",
+        overflow: "hidden",
+        background: "#fafafa",
+      }}
+    >
       <button
         type="button"
-        onClick={toggleAccordion}
+        onClick={() => setIsOpen((prev) => !prev)}
         style={{
           width: "100%",
-          padding: "12px",
+          padding: "16px",
           textAlign: "left",
-          background: "#f5f5f5",
+          background: "transparent",
           border: "none",
           cursor: "pointer",
-          fontWeight: "bold",
+          fontWeight: "700",
+          fontSize: "15px",
         }}
       >
         {title}
       </button>
 
       {isOpen && (
-        <div style={{ padding: "12px", background: "#fff" }}>
-          <p style={{ margin: 0 }}>{content}</p>
+        <div
+          style={{
+            padding: "0 16px 16px 16px",
+            color: "#555",
+            lineHeight: "1.6",
+          }}
+        >
+          {content}
         </div>
       )}
     </div>

@@ -1,15 +1,16 @@
 .slider {
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 20px;
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
 }
 
 .slider-image {
   width: 100%;
   max-width: 520px;
-  height: auto;
-  display: block;
-  border-radius: 12px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .slider-controls {
@@ -22,18 +23,25 @@
 .slider-button {
   padding: 10px 16px;
   border: none;
-  border-radius: 10px;
-  background: black;
+  border-radius: 12px;
+  background: #111;
   color: white;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .slider-button:hover {
-  opacity: 0.9;
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
   .slider {
     padding: 16px;
+    border-radius: 16px;
+  }
+
+  .slider-image {
+    height: 280px;
   }
 
   .slider-controls {

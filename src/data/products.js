@@ -5,11 +5,11 @@ export const products = [
     subtitle: "Healthy food for dogs",
     price: 29.99,
     rating: 4.8,
-    image: "https://via.placeholder.com/200",
+    image: "https://images.unsplash.com/photo-1764813824215-4afa03d1a011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBjYXJyaWVyJTIwdHJhdmVsfGVufDF8fHx8MTc3MTE4NjI3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
     images: [
-      "https://via.placeholder.com/400x300?text=Dog+Food+1",
-      "https://via.placeholder.com/400x300?text=Dog+Food+2",
-      "https://via.placeholder.com/400x300?text=Dog+Food+3",
+      "https://images.unsplash.com/photo-1764813824215-4afa03d1a011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBjYXJyaWVyJTIwdHJhdmVsfGVufDF8fHx8MTc3MTE4NjI3M3ww&ixlib=rb-4.1.0&q=80&w=1080+1",
+      "https://images.unsplash.com/photo-1764813824215-4afa03d1a011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBjYXJyaWVyJTIwdHJhdmVsfGVufDF8fHx8MTc3MTE4NjI3M3ww&ixlib=rb-4.1.0&q=80&w=1080+2",
+      "https://images.unsplash.com/photo-1764813824215-4afa03d1a011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZXQlMjBjYXJyaWVyJTIwdHJhdmVsfGVufDF8fHx8MTc3MTE4NjI3M3ww&ixlib=rb-4.1.0&q=80&w=1080+3",
     ],
     description:
       "Premium dog food with balanced ingredients for everyday nutrition.",
