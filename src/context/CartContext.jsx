@@ -1,9 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  // 👉 загрузка из localStorage
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // 👉 сохранение в localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  // 🔽 ЛОГИКА КОРЗИНЫ
 
   const addToCart = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -47,6 +59,8 @@ function CartProvider({ children }) {
 
     setCartItems(updatedCart);
   };
+
+  // 🔽 СЧЁТЧИКИ
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
