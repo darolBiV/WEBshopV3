@@ -1,26 +1,23 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import "./Header.css";
 
 function Header() {
   const { totalItems } = useContext(CartContext);
 
   return (
-    <header style={{ padding: "20px", borderBottom: "1px solid #ccc" }}>
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link to="/" style={{ fontWeight: "bold", fontSize: "20px" }}>
+    <header className="header">
+      <nav className="nav">
+        <Link to="/" className="logo">
           STORE
         </Link>
 
-        <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+        <div className="menu">
           <Link to="/">Catalog</Link>
-          <Link to="/cart">Cart ({totalItems})</Link>
+          <Link to="/cart" className="cart">
+            Cart ({totalItems})
+          </Link>
         </div>
       </nav>
     </header>

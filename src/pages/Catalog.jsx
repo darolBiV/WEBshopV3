@@ -8,7 +8,6 @@ function Catalog() {
   const [minRating, setMinRating] = useState("");
   const [sortType, setSortType] = useState("");
 
-  // 🔽 ФИЛЬТРАЦИЯ
   let filteredProducts = products.filter((product) => {
     const matchesPrice =
       (!minPrice || product.price >= Number(minPrice)) &&
@@ -20,7 +19,6 @@ function Catalog() {
     return matchesPrice && matchesRating;
   });
 
-  // 🔽 СОРТИРОВКА
   if (sortType === "az") {
     filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
   }
@@ -43,8 +41,6 @@ function Catalog() {
 
       {/* 🔽 ФИЛЬТРЫ */}
       <div style={{ marginBottom: "20px" }}>
-        <h3>Filters</h3>
-
         <input
           type="number"
           placeholder="Min price"
@@ -71,10 +67,8 @@ function Catalog() {
 
       {/* 🔽 СОРТИРОВКА */}
       <div style={{ marginBottom: "20px" }}>
-        <h3>Sort</h3>
-
         <select onChange={(e) => setSortType(e.target.value)}>
-          <option value="">Default</option>
+          <option value="">Sort</option>
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
           <option value="priceLow">Price ↑</option>
