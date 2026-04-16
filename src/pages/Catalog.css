@@ -1,0 +1,48 @@
+.catalog-page {
+  padding: 32px;
+}
+
+.catalog-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.catalog-input,
+.catalog-select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    padding: 20px;
+  }
+
+  .catalog-title {
+    font-size: 26px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+}

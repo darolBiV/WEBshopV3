@@ -49,6 +49,7 @@
   display: flex;
   gap: 10px;
   margin-top: 14px;
+  flex-wrap: wrap;
 }
 
 .cart-button {
@@ -101,4 +102,36 @@
   font-size: 28px;
   font-weight: 700;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .cart-page,
+  .cart-empty {
+    padding: 20px;
+  }
+
+  .cart-title {
+    font-size: 26px;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+  }
+
+  .cart-button {
+    width: 100%;
+  }
+
+  .cart-input {
+    min-width: 100%;
+  }
+
+  .cart-promo-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cart-final {
+    font-size: 24px;
+  }
 }

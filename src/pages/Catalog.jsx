@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
+import "./Catalog.css";
 
 function Catalog() {
   const [minPrice, setMinPrice] = useState("");
@@ -13,8 +14,7 @@ function Catalog() {
       (!minPrice || product.price >= Number(minPrice)) &&
       (!maxPrice || product.price <= Number(maxPrice));
 
-    const matchesRating =
-      !minRating || product.rating >= Number(minRating);
+    const matchesRating = !minRating || product.rating >= Number(minRating);
 
     return matchesPrice && matchesRating;
   });
@@ -36,16 +36,16 @@ function Catalog() {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Catalog</h1>
+    <div className="catalog-page">
+      <h1 className="catalog-title">Catalog</h1>
 
-      {/* 🔽 ФИЛЬТРЫ */}
-      <div style={{ marginBottom: "20px" }}>
+      <div className="catalog-filters">
         <input
           type="number"
           placeholder="Min price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
+          className="catalog-input"
         />
 
         <input
@@ -53,7 +53,7 @@ function Catalog() {
           placeholder="Max price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          style={{ marginLeft: "10px" }}
+          className="catalog-input"
         />
 
         <input
@@ -61,13 +61,14 @@ function Catalog() {
           placeholder="Min rating"
           value={minRating}
           onChange={(e) => setMinRating(e.target.value)}
-          style={{ marginLeft: "10px" }}
+          className="catalog-input"
         />
-      </div>
 
-      {/* 🔽 СОРТИРОВКА */}
-      <div style={{ marginBottom: "20px" }}>
-        <select onChange={(e) => setSortType(e.target.value)}>
+        <select
+          value={sortType}
+          onChange={(e) => setSortType(e.target.value)}
+          className="catalog-select"
+        >
           <option value="">Sort</option>
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
@@ -76,14 +77,7 @@ function Catalog() {
         </select>
       </div>
 
-      {/* 🔽 ТОВАРЫ */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "20px",
-        }}
-      >
+      <div className="catalog-grid">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

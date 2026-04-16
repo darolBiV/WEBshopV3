@@ -48,3 +48,27 @@
 .product-button:hover {
   opacity: 0.9;
 }
+
+@media (max-width: 900px) {
+  .product-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-page {
+    padding: 20px;
+  }
+
+  .product-title {
+    font-size: 26px;
+  }
+
+  .product-info {
+    padding: 18px;
+  }
+
+  .product-button {
+    width: 100%;
+  }
+}

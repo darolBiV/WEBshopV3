@@ -16,6 +16,7 @@
   display: flex;
   gap: 12px;
   margin-top: 16px;
+  flex-wrap: wrap;
 }
 
 .slider-button {
@@ -28,4 +29,18 @@
 
 .slider-button:hover {
   opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .slider {
+    padding: 16px;
+  }
+
+  .slider-controls {
+    flex-direction: column;
+  }
+
+  .slider-button {
+    width: 100%;
+  }
 }
