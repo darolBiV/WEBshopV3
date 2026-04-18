@@ -8,7 +8,7 @@ import "./Product.css";
 
 function Product() {
   const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cartItems } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [isSpecsOpen, setIsSpecsOpen] = useState(true);
 
@@ -40,6 +40,9 @@ function Product() {
     { label: "Safety", value: "BPA-Free, Non-Toxic" },
     { label: "Suitable For", value: "All Dog Sizes" },
   ];
+
+  const cartItem = cartItems.find((item) => item.id === product.id);
+  const isInCart = Boolean(cartItem);
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -117,11 +120,17 @@ function Product() {
 
           <button
             type="button"
-            className="product-add-btn"
+            className={`product-add-btn ${isInCart ? "product-add-btn-added" : ""}`}
             onClick={handleAddToCart}
           >
-            🛒 Add to Cart
+            {isInCart ? "✓ Added to Cart" : "🛒 Add to Cart"}
           </button>
+
+          {isInCart && (
+            <p className="product-cart-note">
+              Already in cart: {cartItem.quantity}
+            </p>
+          )}
 
           <div className="product-specs-accordion">
             <button

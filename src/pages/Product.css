@@ -172,6 +172,24 @@
   transform: translateY(-1px);
 }
 
+.product-add-btn-added {
+  background: #fff7ed;
+  color: #ff6b00;
+  border: 1px solid #fdba74;
+}
+
+.product-add-btn-added:hover {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.product-cart-note {
+  margin: -12px 0 24px;
+  color: #16a34a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .product-specs-accordion {
   border: 1px solid #dbe3ec;
   border-radius: 16px;
