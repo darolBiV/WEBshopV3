@@ -10,6 +10,7 @@ function Product() {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
+  const [isSpecsOpen, setIsSpecsOpen] = useState(true);
 
   const product = products.find((item) => item.id === Number(id));
 
@@ -121,31 +122,35 @@ function Product() {
           >
             🛒 Add to Cart
           </button>
-        </div>
-      </div>
 
-      <div className="product-extra">
-        <div className="product-description-card">
-          <h2>Description</h2>
-          <p>{product.description}</p>
-        </div>
+          <div className="product-specs-accordion">
+            <button
+              type="button"
+              className="product-specs-toggle"
+              onClick={() => setIsSpecsOpen((prev) => !prev)}
+            >
+              <span className="product-specs-toggle-title">
+                Technical Specifications
+              </span>
+              <span
+                className={`product-specs-arrow ${
+                  isSpecsOpen ? "open" : ""
+                }`}
+              >
+                ⌃
+              </span>
+            </button>
 
-        <div className="product-specs-card">
-          <div className="product-specs-header">
-            <span className="specs-icon">◫</span>
-            <h2>Technical Specifications</h2>
-          </div>
-
-          <div className="product-specs-grid">
-            {specifications.map((item, index) => (
-              <div key={index} className="spec-item">
-                <div className="spec-item-icon">i</div>
-                <div>
-                  <div className="spec-label">{item.label}</div>
-                  <div className="spec-value">{item.value}</div>
-                </div>
+            {isSpecsOpen && (
+              <div className="product-specs-list">
+                {specifications.map((item, index) => (
+                  <div className="product-spec-row" key={index}>
+                    <span className="product-spec-label">{item.label}</span>
+                    <span className="product-spec-value">{item.value}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
