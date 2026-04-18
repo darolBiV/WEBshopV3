@@ -56,7 +56,14 @@ function CartProvider({ children }) {
     );
   };
 
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  // количество разных позиций
+  const totalItems = cartItems.length;
+
+  // общее количество товаров с учётом quantity
+  const totalQuantity = cartItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -72,6 +79,7 @@ function CartProvider({ children }) {
         increaseQuantity,
         decreaseQuantity,
         totalItems,
+        totalQuantity,
         totalPrice,
       }}
     >

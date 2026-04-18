@@ -1,4 +1,7 @@
 import "./Footer.css";
+import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+
 
 function Footer() {
   return (
@@ -45,7 +48,7 @@ function Footer() {
                 className="footer-input"
               />
               <button type="button" className="footer-send-btn">
-                ✉
+                <FaEnvelope />
               </button>
             </div>
           </div>
@@ -55,9 +58,9 @@ function Footer() {
           <p className="footer-copy">© 2026 PawsStore. All rights reserved.</p>
 
           <div className="footer-socials">
-            <span>f</span>
-            <span>t</span>
-            <span>◎</span>
+            <span><FaFacebook /></span>
+            <span><FaTwitter /></span>
+            <span><FaInstagram /></span>
           </div>
         </div>
       </div>
