@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { FaTrash } from "react-icons/fa";
-import { FaCreditCard } from "react-icons/fa";
-import { FaTag } from "react-icons/fa";
-import { FaClock } from "react-icons/fa";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaShoppingBag } from "react-icons/fa";
+import {
+  FaTrash,
+  FaCreditCard,
+  FaTag,
+  FaClock,
+  FaMapMarkerAlt,
+  FaShoppingBag,
+  FaCheck,
+  FaTimes,
+} from "react-icons/fa";
 import "./Cart.css";
 
 function Cart() {
@@ -23,6 +27,7 @@ function Cart() {
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [error, setError] = useState("");
+  const [appliedPromo, setAppliedPromo] = useState("");
 
   const handleApplyPromo = () => {
     if (!promoCode.trim()) {
@@ -30,26 +35,43 @@ function Cart() {
       return;
     }
 
+    if (appliedPromo) {
+      return;
+    }
+
     if (promoCode.trim().toUpperCase() === "SAVE10") {
       setDiscount(0.1);
+      setAppliedPromo("SAVE10");
       setError("");
+      setPromoCode("");
     } else {
       setDiscount(0);
+      setAppliedPromo("");
       setError("Invalid promo code");
     }
+  };
+
+  const handleRemovePromo = () => {
+    setDiscount(0);
+    setAppliedPromo("");
+    setPromoCode("");
+    setError("");
   };
 
   const subtotal = totalPrice;
   const tax = subtotal * 0.08;
   const totalBeforeDiscount = subtotal + tax;
-  const finalTotal = totalBeforeDiscount - totalBeforeDiscount * discount;
+  const discountAmount = totalBeforeDiscount * discount;
+  const finalTotal = totalBeforeDiscount - discountAmount;
   const freeShippingQualified = subtotal >= 50;
 
   if (cartItems.length === 0) {
     return (
       <div className="empty-cart-page">
         <div className="empty-cart-content">
-          <div className="empty-cart-icon"><FaShoppingBag /></div>
+          <div className="empty-cart-icon">
+            <FaShoppingBag />
+          </div>
           <h1>Your cart is empty</h1>
           <p>Discover amazing products for your furry friends!</p>
 
@@ -73,7 +95,7 @@ function Cart() {
 
         <div className="cart-steps">
           <div className="step active">1</div>
-          <span>Cart</span>
+          <span className="active-label">Cart</span>
           <span className="step-arrow">›</span>
           <div className="step">2</div>
           <span>Checkout</span>
@@ -84,7 +106,9 @@ function Cart() {
       </div>
 
       <div className="shipping-banner">
-        <span><FaTag /> Free shipping on orders over </span>
+        <span>
+          <FaTag /> Free shipping on orders over
+        </span>
         <strong>$50</strong>
 
         <span
@@ -92,7 +116,9 @@ function Cart() {
             freeShippingQualified ? "qualified" : "not-qualified"
           }`}
         >
-          {freeShippingQualified ? "✓ Qualified!" : "Not qualified yet"}
+          {freeShippingQualified
+            ? "✓ Qualified!"
+            : `$${(50 - subtotal).toFixed(2)} away`}
         </span>
       </div>
 
@@ -160,25 +186,53 @@ function Cart() {
 
           <div className="summary-body">
             <div className="promo-block">
-              <label className="promo-label"><FaTag /> Promo Code</label>
+              <label className="promo-label">
+                <FaTag /> Promo Code
+              </label>
 
-              <div className="promo-row">
-                <input
-                  type="text"
-                  value={promoCode}
-                  onChange={(e) => setPromoCode(e.target.value)}
-                  placeholder="Enter code"
-                  className="promo-input"
-                />
+              {!appliedPromo ? (
+                <div className="promo-row">
+                  <input
+                    type="text"
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    placeholder="Enter code"
+                    className="promo-input"
+                  />
 
-                <button
-                  type="button"
-                  onClick={handleApplyPromo}
-                  className="apply-btn"
-                >
-                  Apply
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    onClick={handleApplyPromo}
+                    className="apply-btn"
+                  >
+                    Apply
+                  </button>
+                </div>
+              ) : (
+                <div className="promo-success-box">
+                  <div className="promo-success-left">
+                    <div className="promo-success-icon">
+                      <FaCheck />
+                    </div>
+
+                    <div className="promo-success-text">
+                      <div className="promo-success-code">{appliedPromo}</div>
+                      <div className="promo-success-desc">
+                        10% discount applied
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="promo-remove-btn"
+                    onClick={handleRemovePromo}
+                    aria-label="Remove promo code"
+                  >
+                    <FaTimes />
+                  </button>
+                </div>
+              )}
 
               {error && <p className="promo-error">{error}</p>}
             </div>
@@ -195,8 +249,8 @@ function Cart() {
 
             {discount > 0 && (
               <div className="summary-line discount-line">
-                <span>Discount</span>
-                <span>-{(discount * 100).toFixed(0)}%</span>
+                <span>Discount (10%)</span>
+                <span>-${discountAmount.toFixed(2)}</span>
               </div>
             )}
 
@@ -206,7 +260,9 @@ function Cart() {
             </div>
 
             <div className="summary-info-card blue">
-              <div className="summary-info-icon"><FaClock /></div>
+              <div className="summary-info-icon">
+                <FaClock />
+              </div>
               <div>
                 <div className="summary-info-title">Delivery Time</div>
                 <div className="summary-info-text">3-5 business days</div>
@@ -214,10 +270,14 @@ function Cart() {
             </div>
 
             <div className="summary-info-card purple">
-              <div className="summary-info-icon"><FaMapMarkerAlt /></div>
+              <div className="summary-info-icon">
+                <FaMapMarkerAlt />
+              </div>
               <div>
                 <div className="summary-info-title">Shipping To</div>
-                <div className="summary-info-text">123 Main Street, NY 10001</div>
+                <div className="summary-info-text">
+                  123 Main Street, NY 10001
+                </div>
               </div>
             </div>
 

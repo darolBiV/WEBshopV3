@@ -123,10 +123,11 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 20px rgba(255, 122, 0, 0.25);
-  transition: 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .hover-cart-btn:hover {
+  background: #e56f00;
   transform: scale(1.05);
 }
 

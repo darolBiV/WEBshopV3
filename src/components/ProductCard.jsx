@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { FaShoppingCart} from "react-icons/fa";
 import "./ProductCard.css";
 
 function ProductCard({ product }) {
@@ -42,7 +43,7 @@ function ProductCard({ product }) {
               onClick={() => addToCart(product)}
               aria-label="Add to cart"
             >
-              🛒
+              <FaShoppingCart />
             </button>
           </div>
         </div>

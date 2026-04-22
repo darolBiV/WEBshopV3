@@ -4,6 +4,7 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ToastContainer from "./components/ToastContainer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <ToastContainer />
     </BrowserRouter>
   );
 }
