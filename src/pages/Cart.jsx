@@ -1,16 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import {
-  FaTrash,
-  FaCreditCard,
-  FaTag,
-  FaClock,
-  FaMapMarkerAlt,
-  FaShoppingBag,
-  FaCheck,
-  FaTimes,
-} from "react-icons/fa";
+import {FaTrash,FaCreditCard,FaTag,FaClock,FaMapMarkerAlt,FaShoppingBag,FaCheck,FaTimes,} from "react-icons/fa";
 import "./Cart.css";
 
 function Cart() {

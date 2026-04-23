@@ -165,9 +165,10 @@
     bottom: 14px;
     padding: 18px 16px;
     border-radius: 18px;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+    pointer-events: none;
   }
 
   .product-card-price-badge {
@@ -177,7 +178,6 @@
     padding: 10px 14px;
   }
 
-  .hover-title,
   .product-card-title {
     font-size: 16px;
   }

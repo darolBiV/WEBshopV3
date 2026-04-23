@@ -119,8 +119,6 @@ function Catalog() {
             </div>
           </div>
         </aside>
-
-        {/* ПРАВАЯ ЧАСТЬ */}
         <section className="catalog-content">
           <div className="catalog-toolbar">
             <span className="product-count">
